@@ -37,8 +37,8 @@ else:
 '''
 
 #FIND MANY BOOKS OF THE SAME AUTHOR
-'''
 
+'''
 authorquery = {"author": "Jane Austen" }
 books = book_collection.find(authorquery)
 
@@ -51,10 +51,8 @@ else:
     print(" %s books found with author Jane Austen" % books.retrieved)
 
 '''
-
-'''
 #Change the title of one book from Persuasion to Northanger Abbey
-
+'''
 myquery = {"name": "Northanger Abbey"}
 newvalues = {"$set": {"name": "Persuasion"}}
 
@@ -62,8 +60,9 @@ result = book_collection.update_one(myquery, newvalues)
 print("%d documents matched, %d documents updated"
     %(result.matched_count, result.modified_count))
 
+'''
 #Change the author from Jane Austen to Austen, J throughout
-
+'''
 myquery = {"author": "Jane Austen"}
 newvalues = {"$set": {"author": "Austen, J"}}
 
@@ -73,13 +72,13 @@ print("%d documents matched, %d documents updated"
     '''
 
 #delete one book
-
+'''
 book = {"title": "Pride and Predjudice", "author": "Austen, J"}
 results = book_collection.delete_one(book)
 print("\n Deleted %d books" % (results.deleted_count))
-
+'''
 #delete all documents in the collection with author Austen J
-
+'''
 results = book_collection.delete_many({"author": "Jane Austen"})
 print ("\nDeleted %d books" %(results.deleted_count))
-
+'''

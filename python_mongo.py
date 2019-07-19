@@ -8,14 +8,15 @@ book_collection = mydb["books"]
 
 
 client.close()
-
+'''
 book = { "title": "Pride and Prejusice", "author": "Jane Austen" }
 new_id = book_collection.insert_one(book)
 print("Inserted book with id %s" % new_id.inserted_id)
-
+'''
 new_books = [
     {"title": "Persuasion", "author": "Jane Austen"},
-    {"title": "Northanger Abbey", "author": "Jane Austen"}
+    {"title": "Northanger Abbey", "author": "Jane Austen"},
+    {"title": "Pride and Prejusice", "author": "Jane Austen"}
 ]
 new_ids = book_collection.insert_many(new_books)
 
@@ -38,7 +39,7 @@ else:
 
 #FIND MANY BOOKS OF THE SAME AUTHOR
 
-'''
+
 authorquery = {"author": "Jane Austen" }
 books = book_collection.find(authorquery)
 
@@ -50,7 +51,7 @@ if books.retrieved == 0:
 else:
     print(" %s books found with author Jane Austen" % books.retrieved)
 
-'''
+
 #Change the title of one book from Persuasion to Northanger Abbey
 '''
 myquery = {"name": "Northanger Abbey"}
